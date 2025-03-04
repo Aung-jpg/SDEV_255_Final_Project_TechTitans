@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: './backend/.env' }); 
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./db"); // Import the DB connection
@@ -10,7 +10,7 @@ const PORT = process.env.PORT;
 app.use(express.json());
 
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(",") : ["http://localhost:5173"], 
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true 
 }));
